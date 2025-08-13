@@ -1,0 +1,40 @@
+@import "tailwindcss";
+/* @plugin "daisyui"; */
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-robotoflex {
+  font-family: "Roboto Flex", sans-serif;
+}
+
+.font-gothic {
+  font-family: 'Special Gothic Expanded One', sans-serif;
+}
+
+.font-poppins{
+  font-family: 'Poppins';
+}
+
+.font-nunito{
+  font-family: 'Nunito';
+}
+
+.markdown h2{
+  font: bold;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.markdown p{
+  font-size: 15px;
+  font:normal;
+}
+
+.markdown ul{
+  font-size: 15px;
+  list-style-type: disc;
+  padding-left: 30px;
+}
+

@@ -1,0 +1,24 @@
+import axios from "axios"
+import { useEffect, useState } from "react"
+
+export const useAllAppointments = () => {
+    const [appointments, setAppointments] = useState([])
+    const [loading, setLoading] = useState(true)
+    const docId = localStorage.getItem("doctorId")
+    const fetchAppointments = async () => {
+        try {
+            const res = await axios.get(`http://localhost:3000/visitors/all/${docId}`)
+            setAppointments(res.data)
+            setLoading(false)
+        } catch (err) {
+            console.log("Error loading appointments")
+            setLoading(false)
+        }
+    }
+    useEffect(() => {
+        fetchAppointments()
+    }, [])
+    return { appointments, loading }
+
+}
+
