@@ -3,7 +3,7 @@ import LandingPage from './Pages/LandingPage'
 import DoctorLogin from './Components/Login/DoctorLogin'
 import { Route, Routes } from "react-router-dom"
 import DoctorLoginPage from './Pages/DoctorLoginPage'
-import DoctorSignup from './Components/SignUp/doctorSignup'
+import DoctorSignup from './Components/SignUp/DoctorSignup'
 import PatientLogin from './Components/Login/PatientLogin'
 import { ToastContainer } from 'react-toastify';
 import DoctorDashboard from './Pages/DoctorDashboard'
