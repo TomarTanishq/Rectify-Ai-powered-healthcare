@@ -193,9 +193,11 @@ app.post('/doctors/login', async (req, res) => {
 
         res.status(201).cookie("token", token, {
             httpOnly: true,
-            sameSite: 'lax',
-            secure: false,
-            domain: 'localhost',
+            // sameSite: 'lax',
+            sameSite:'none',
+            // secure: false,
+            secure:true,
+            // domain: 'localhost',
             path: '/'
         }).json(doctor)
     } catch (err) {
