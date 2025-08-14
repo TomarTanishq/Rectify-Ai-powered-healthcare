@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import DoctorGreeting from "../../images/DoctorGreeting.png"
 import { User, SquareActivity, Phone, House, BriefcaseMedical, Activity, Plus, Circle, CheckCircle, HeartPlus, Heart } from "lucide-react"
 import {
@@ -9,6 +9,7 @@ import {
   ResponsiveContainer
 } from 'recharts';
 import AddPatient from "../AddPatient/addPatient"
+import api from '../../api';
 
 const DoctorDashboard = () => {
 
@@ -35,7 +36,7 @@ const DoctorDashboard = () => {
   const fetchTodaysPatients = async () => {
     try {
       setLoading(true)
-      const res = await axios.get(`http://localhost:3000/visitors/${docId}`)
+      const res = await api.get(`http://localhost:3000/visitors/${docId}`)
       setTodaysPatients(res.data)
       setLoading(false)
     } catch (error) {
@@ -47,7 +48,7 @@ const DoctorDashboard = () => {
   // All Patients
   const fetchPatients = async () => {
     try {
-      const res = await axios.post('http://localhost:3000/patients/all', {}, {
+      const res = await api.post('http://localhost:3000/patients/all', {}, {
         withCredentials: true
       })
       setPatients(res.data)
@@ -62,7 +63,7 @@ const DoctorDashboard = () => {
   // Fetch today's tasks
   const fetchTodaysTasks = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/tasks/today', {
+      const res = await api.get('http://localhost:3000/tasks/today', {
         withCredentials: true
       })
       setTasks(res.data)
@@ -77,7 +78,7 @@ const DoctorDashboard = () => {
 
     try {
       setTaskLoading(true)
-      const res = await axios.post('http://localhost:3000/tasks/add', {
+      const res = await api.post('http://localhost:3000/tasks/add', {
         task: newTaskText,
         status: 'pending'
       }, {
@@ -99,7 +100,7 @@ const DoctorDashboard = () => {
     const newStatus = currentStatus === 'pending' ? 'completed' : 'pending'
 
     try {
-      const res = await axios.patch(`http://localhost:3000/tasks/${taskId}`, {
+      const res = await api.patch(`http://localhost:3000/tasks/${taskId}`, {
         status: newStatus
       }, {
         withCredentials: true

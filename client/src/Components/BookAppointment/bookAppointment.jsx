@@ -2,10 +2,8 @@ import axios from "axios"
 import { div } from "motion/react-client"
 import { useState, useEffect } from "react"
 import { toast } from 'react-toastify';
+import api from "../../api";
 const bookappointment = ({ onClose }) => {
-
-
-
   const [doctors, setDoctors] = useState([])
   const [loading, setLoading] = useState(false)
   const [submitting, setSubmitting] = useState(false)
@@ -25,7 +23,7 @@ const bookappointment = ({ onClose }) => {
   const fetchDoctors = async () => {
     try {
       setLoading(true)
-      const res = await axios.get('http://localhost:3000/patients/bookAppointment')
+      const res = await api.get('http://localhost:3000/patients/bookAppointment')
       setDoctors(res.data)
       setLoading(false)
 

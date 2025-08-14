@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import api from "../api"
 
 export const useAllAppointments = () => {
     const [appointments, setAppointments] = useState([])
@@ -7,7 +8,7 @@ export const useAllAppointments = () => {
     const docId = localStorage.getItem("doctorId")
     const fetchAppointments = async () => {
         try {
-            const res = await axios.get(`http://localhost:3000/visitors/all/${docId}`)
+            const res = await api.get(`http://localhost:3000/visitors/all/${docId}`)
             setAppointments(res.data)
             setLoading(false)
         } catch (err) {

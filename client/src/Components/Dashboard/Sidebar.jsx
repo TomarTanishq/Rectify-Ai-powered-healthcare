@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { User, Menu, X, LayoutDashboard, LogOut } from 'lucide-react';
 import React, { useState } from 'react';
+import api from '../../api';
 
 const menuItems = [
   { icon: <LayoutDashboard size={20} />, label: "Dashboard" },
@@ -13,7 +14,7 @@ const Sidebar = ({ activePage, setActivePage }) => {
   // Logout
   const handleLogout = async () => {
     try {
-      await axios.post("http://localhost:3000/doctors/logout", {}, {
+      await api.post("http://localhost:3000/doctors/logout", {}, {
         withCredentials: true,
       })
       window.location.href = '/'

@@ -7,6 +7,7 @@ import { usePatientStats } from '../../hooks/usePatientStats'
 import { useAllAppointments } from '../../hooks/useAllAppointments'
 import { useTodaysAppointments } from '../../hooks/useTodaysAppointments'
 import AddPatient from '../AddPatient/addPatient'
+import api from '../../api'
 
 const Patients = () => {
     const [patients, setPatients] = useState([])
@@ -19,7 +20,7 @@ const Patients = () => {
     // Fetch patients
     const fetchPatients = async () => {
         try {
-            const res = await axios.post('http://localhost:3000/patients/all', {}, {
+            const res = await api.post('http://localhost:3000/patients/all', {}, {
                 withCredentials: true
             })
             setPatients(res.data)

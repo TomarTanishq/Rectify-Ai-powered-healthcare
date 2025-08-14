@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { HeartPlus, Plus } from "lucide-react"
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import api from '../../api'
 const AddPatient = () => {
     //Add Patient state
     const [formData, setFormData] = useState({
@@ -85,7 +86,7 @@ const AddPatient = () => {
     const handleAddPatient = async (e) => {
         e.preventDefault()
         try {
-            const res = await axios.post('http://localhost:3000/patients/add', formData, {
+            const res = await api.post('http://localhost:3000/patients/add', formData, {
                 withCredentials: true
             })
             setFormData({

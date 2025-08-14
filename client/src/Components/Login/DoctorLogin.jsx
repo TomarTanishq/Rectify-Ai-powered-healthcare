@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios"
 import DoctorsSVG from "../../images/Doctors.svg"
 import { useNavigate } from "react-router-dom";
-
+import api from "../../api";
 const DoctorLogin = ({ }) => {
 
   const navigate = useNavigate()
@@ -13,13 +13,13 @@ const DoctorLogin = ({ }) => {
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post('http://localhost:3000/doctors/login', {
+      const res = await api.post('/doctors/login', {
         email,
         password
       }, {
         withCredentials: true
       })
-      
+
       // DocId and DocName
       const docId = res.data._id
       const docName = res.data.name

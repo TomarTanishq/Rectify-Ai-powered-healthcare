@@ -1,11 +1,9 @@
 import { useState } from "react"
-// import MarkdownView from 'react-showdown';
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-// import Markdown from 'marked-react';
-
 import axios from "axios"
 import { div } from "motion/react-client";
+import api from "../../api";
 
 const AskAI = () => {
 
@@ -17,7 +15,7 @@ const AskAI = () => {
     const fetchAiResponse = async (userPrompt) => {
         try {
             setLoading(true)
-            const res = await axios.post('http://localhost:3000/diagnosis', {
+            const res = await api.post('http://localhost:3000/diagnosis', {
                 userPrompt: userPrompt
             })
 

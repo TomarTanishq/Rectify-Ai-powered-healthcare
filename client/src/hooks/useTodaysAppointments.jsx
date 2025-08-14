@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
+import api from "../api"
 
 export const useTodaysAppointments = () => {
     const [todaysAppointments, setTodaysAppointments] = useState([])
@@ -9,7 +10,7 @@ export const useTodaysAppointments = () => {
     // Fetch today's appointments
     const fetchTodaysAppointments = async () => {
         try {
-            const res = await axios.get(`http://localhost:3000/visitors/${docId}`)
+            const res = await api.get(`http://localhost:3000/visitors/${docId}`)
             setTodaysAppointments(res.data)
             setLoading(false)
         } catch (err) {
