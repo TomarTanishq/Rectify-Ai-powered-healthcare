@@ -20,7 +20,7 @@ const Patients = () => {
     // Fetch patients
     const fetchPatients = async () => {
         try {
-            const res = await api.post('http://localhost:3000/patients/all', {}, {
+            const res = await api.post('/patients/all', {}, {
                 withCredentials: true
             })
             setPatients(res.data)

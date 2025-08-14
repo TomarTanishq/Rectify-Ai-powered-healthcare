@@ -23,7 +23,7 @@ const bookappointment = ({ onClose }) => {
   const fetchDoctors = async () => {
     try {
       setLoading(true)
-      const res = await api.get('http://localhost:3000/patients/bookAppointment')
+      const res = await api.get('/patients/bookAppointment')
       setDoctors(res.data)
       setLoading(false)
 
@@ -48,7 +48,7 @@ const bookappointment = ({ onClose }) => {
 
     try {
 
-      const res = await api.post('http://localhost:3000/visitors/onlineAppointment', formData)
+      const res = await api.post('/visitors/onlineAppointment', formData)
       setFormData({
         doctor: '', name: '', age: '', gender: '', contactNumber: '', appointmentDate: '', address: '', timing: ''
       })

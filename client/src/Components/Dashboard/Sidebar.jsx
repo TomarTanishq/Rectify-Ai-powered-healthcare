@@ -14,7 +14,7 @@ const Sidebar = ({ activePage, setActivePage }) => {
   // Logout
   const handleLogout = async () => {
     try {
-      await api.post("http://localhost:3000/doctors/logout", {}, {
+      await api.post("/doctors/logout", {}, {
         withCredentials: true,
       })
       window.location.href = '/'

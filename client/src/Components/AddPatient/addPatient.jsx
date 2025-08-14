@@ -86,7 +86,7 @@ const AddPatient = () => {
     const handleAddPatient = async (e) => {
         e.preventDefault()
         try {
-            const res = await api.post('http://localhost:3000/patients/add', formData, {
+            const res = await api.post('/patients/add', formData, {
                 withCredentials: true
             })
             setFormData({

@@ -36,7 +36,7 @@ const DoctorDashboard = () => {
   const fetchTodaysPatients = async () => {
     try {
       setLoading(true)
-      const res = await api.get(`http://localhost:3000/visitors/${docId}`)
+      const res = await api.get(`/visitors/${docId}`)
       setTodaysPatients(res.data)
       setLoading(false)
     } catch (error) {
@@ -48,7 +48,7 @@ const DoctorDashboard = () => {
   // All Patients
   const fetchPatients = async () => {
     try {
-      const res = await api.post('http://localhost:3000/patients/all', {}, {
+      const res = await api.post('/patients/all', {}, {
         withCredentials: true
       })
       setPatients(res.data)
@@ -63,7 +63,7 @@ const DoctorDashboard = () => {
   // Fetch today's tasks
   const fetchTodaysTasks = async () => {
     try {
-      const res = await api.get('http://localhost:3000/tasks/today', {
+      const res = await api.get('/tasks/today', {
         withCredentials: true
       })
       setTasks(res.data)
@@ -78,7 +78,7 @@ const DoctorDashboard = () => {
 
     try {
       setTaskLoading(true)
-      const res = await api.post('http://localhost:3000/tasks/add', {
+      const res = await api.post('/tasks/add', {
         task: newTaskText,
         status: 'pending'
       }, {
@@ -100,7 +100,7 @@ const DoctorDashboard = () => {
     const newStatus = currentStatus === 'pending' ? 'completed' : 'pending'
 
     try {
-      const res = await api.patch(`http://localhost:3000/tasks/${taskId}`, {
+      const res = await api.patch(`/${taskId}`, {
         status: newStatus
       }, {
         withCredentials: true
