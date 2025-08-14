@@ -100,7 +100,7 @@ const DoctorDashboard = () => {
     const newStatus = currentStatus === 'pending' ? 'completed' : 'pending'
 
     try {
-      const res = await api.patch(`/${taskId}`, {
+      const res = await api.patch(`/tasks/${taskId}`, {
         status: newStatus
       }, {
         withCredentials: true
