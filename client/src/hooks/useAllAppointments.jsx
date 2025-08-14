@@ -8,7 +8,7 @@ export const useAllAppointments = () => {
     const docId = localStorage.getItem("doctorId")
     const fetchAppointments = async () => {
         try {
-            const res = await api.get(`http://localhost:3000/visitors/all/${docId}`)
+            const res = await api.get(`/visitors/all/${docId}`)
             setAppointments(res.data)
             setLoading(false)
         } catch (err) {

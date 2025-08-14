@@ -10,7 +10,7 @@ export const useTodaysAppointments = () => {
     // Fetch today's appointments
     const fetchTodaysAppointments = async () => {
         try {
-            const res = await api.get(`http://localhost:3000/visitors/${docId}`)
+            const res = await api.get(`/visitors/${docId}`)
             setTodaysAppointments(res.data)
             setLoading(false)
         } catch (err) {
