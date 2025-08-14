@@ -48,7 +48,7 @@ const bookappointment = ({ onClose }) => {
 
     try {
 
-      const res = await axios.post('http://localhost:3000/visitors/onlineAppointment', formData)
+      const res = await api.post('http://localhost:3000/visitors/onlineAppointment', formData)
       setFormData({
         doctor: '', name: '', age: '', gender: '', contactNumber: '', appointmentDate: '', address: '', timing: ''
       })
