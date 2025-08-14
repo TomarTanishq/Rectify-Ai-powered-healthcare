@@ -19,7 +19,7 @@ const PORT = process.env.PORT
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: ['http://localhost:5173','https://rectify-ai-powered-healthcare.onrender.com/' ],
+    origin: ['http://localhost:5173','https://rectify-ai-powered-healthcare.onrender.com' ],
     methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
     credentials: true
 }))
