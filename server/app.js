@@ -212,7 +212,7 @@ app.post('/doctors/logout', (req, res) => {
             httpOnly: true,
             sameSite: 'lax',
             secure: false,
-            domain:'localhost',
+            // domain:'localhost',
             path:'/',
             expires: new Date(0)
         })
