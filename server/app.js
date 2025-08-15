@@ -19,7 +19,7 @@ const PORT = process.env.PORT
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: ['http://localhost:5173','https://rectify-ai-powered-healthcare.onrender.com', 'https://rectify-black.vercel.app' ],
+    origin: ['http://localhost:5173', 'https://rectify-ai-powered-healthcare.onrender.com', 'https://rectify-black.vercel.app'],
     methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
     credentials: true
 }))
@@ -194,9 +194,9 @@ app.post('/doctors/login', async (req, res) => {
         res.status(201).cookie("token", token, {
             httpOnly: true,
             // sameSite: 'lax',
-            sameSite:'none',
+            sameSite: 'none',
             // secure: false,
-            secure:true,
+            secure: true,
             // domain: 'localhost',
             path: '/'
         }).json(doctor)
@@ -208,12 +208,14 @@ app.post('/doctors/login', async (req, res) => {
 // Doctor Logout
 app.post('/doctors/logout', (req, res) => {
     try {
-        res.cookie("token","", {
+        res.cookie("token", "", {
             httpOnly: true,
-            sameSite: 'lax',
-            secure: false,
+            // sameSite: 'lax',
+            sameSite: 'None',
+            // secure: false,
+            secure: true,
             // domain:'localhost',
-            path:'/',
+            path: '/',
             expires: new Date(0)
         })
         console.log(`Doctor logged out successfully!`)
